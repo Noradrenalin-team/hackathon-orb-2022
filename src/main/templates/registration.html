@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+
+    <title>Регистрация</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="box">
+                <a href="#"><div class="header-block">Главная</div></a>
+                <a href="#"><div class="header-block">ЛК</div></a>
+            </div>
+        </header>
+        <div class="body">
+            <div class="wrapper-form">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h1>Подача заявки на конкурс</h1>
+                    <hr>
+                    <h3>Почта<sup>*</sep></h3>
+                    <input required id="filed" class="input-text" placeholder="Почта" type="email" name="email" id="">
+                    <hr>
+                    <h3>Пароль<sup>*</sep></h3>
+                    <input required id="filed" class="input-text" placeholder="Пароль" type="password" name="password" id="pass1">
+                    <hr>
+                    <h3>Повторите пароль<sup>*</sep></h3>
+                    <input required id="filed" class="input-text" placeholder="Повторите пароль" type="password" name="" id="pass2">
+                    <hr>
+                    <h3>ФИО<sup>*</sep></h3>
+                    <input required id="filed" class="input-text" placeholder="ФИО" type="text" name="fio" id="">
+                    <hr>
+                    <h3>Место работы<sup>*</sep></h3>
+                    <input required id="filed" class="input-text" placeholder="Место работы" type="text" name="org" id="">
+                    <hr>
+                    <h3>Должность<sup>*</sep></h3>
+                    <input required id="filed" class="input-text" placeholder="Должность" type="text" name="pos" id="">
+                    <hr>
+                    <div id="block-add-authors" class="block-add-authors"></div>
+                    <button onclick="addAuthor()">добавить соавтора</button>
+                    <hr>
+                    <h3>Тема<sup>*</sep></h3>
+                    <input maxlength="100" required id="filed" class="input-text" placeholder="Тема" type="text" name="topic" id="">
+                    <hr>
+                    <h3>Заголовок<sup>*</sep></h3>
+                    <input required id="filed" class="input-text" placeholder="Заголовок" type="text" name="heading" id=""><hr>
+                    <h3>Аннотация<sup>*</sep></h3>
+                    <textarea required id="filed" name="annotation" id="" cols="50" rows="10"></textarea>
+                    <hr>
+                    <h3>Прикрепите файл материала (pdf, docx, mp4, avi)<sup>*</sep></h3>
+                        <input required id="filed" class="input-file" type="file" name="file" id="">
+                    <hr>
+                    <h3>Добавит ссылку/и на публикацию</h3>
+                    <br>
+                    <div id="block-add-links">
+                        <input class="input-text-marg" placeholder="Ссылка на публикацию" type="text" name="link" id="">
+                        <hr>                        
+                    </div>
+                    <br>
+                    <button onclick="addLink()">Добавить ссылку</button>
+                    <hr>
+                    <h3>Добавить иллистрацию для аннотации</h3>
+                    <input class="input-file" type="file" name="photo" id="">
+                    <hr>
+                    <button id="button-submit" type="submit">Отправить заявку</button>
+                </form>
+                <br>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    <script>
+        function addAuthor(){
+            let block = document.getElementById('block-add-authors')
+            let nameInput = document.createElement("input");
+            let workInput = document.createElement("input");
+            let roleInput = document.createElement("input");
+            let hr = document.createElement("hr");
+
+            nameInput.className = "input-text-marg";
+            workInput.className = "input-text-marg";
+            roleInput.className = "input-text-marg";
+
+            nameInput.required = true
+            workInput.required = true
+            roleInput.required = true
+
+            nameInput.placeholder = "ФИО соавтора"
+            workInput.placeholder = "Место работы соавтора"
+            roleInput.placeholder = "Должность соавтора"
+
+            nameInput.name = "fio2"
+            workInput.name = "org2"
+            roleInput.name = "pos2"
+
+
+            block.appendChild(nameInput)
+            block.appendChild(workInput)
+            block.appendChild(roleInput)
+            block.appendChild(hr)
+        }
+
+        function addLink(){
+            let block = document.getElementById('block-add-links')
+            let nameInput = document.createElement("input");
+            let hr = document.createElement("hr");
+
+            nameInput.className = "input-text-marg";
+
+            nameInput.required = true
+
+            nameInput.placeholder = "Ссылка на публикацию"
+            nameInput.name = "link"
+
+            block.appendChild(nameInput)
+            block.appendChild(hr)
+        }
+
+        window.addEventListener("load",function(){
+            document.getElementById("button-submit").addEventListener("click",function(){
+                var inp1 = document.getElementById("pass1"), inp2 = document.getElementById("pass2");
+                if(inp1.value!=inp2.value){
+                    inp1.value = "";
+                    inp2.value = "";
+                    alert("Пароли не совпадают")
+                }
+            });
+        })
+    </script>
+</body>
+</html>

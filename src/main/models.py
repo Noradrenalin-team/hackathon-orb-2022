@@ -18,16 +18,14 @@ class Author(models.Model):
 
     '''
 
-    name = models.CharField(max_length=100)
-    surname = models.CharField(max_length=100)
-    patronymic = models.CharField(max_length=100)
+    fio = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     password = models.CharField(max_length=100)
     organization = models.CharField(max_length=100)
-    position = models.CharField(max_length=100)
+    position = models.CharField(max_length=99)
 
     def __str__(self):
-        return self.name + ' ' + self.surname + ' ' + self.patronymic
+        return self.fio 
 
 
 class CoAuthor(models.Model):
@@ -43,15 +41,13 @@ class CoAuthor(models.Model):
 
     '''
 
-    name = models.CharField(max_length=100)
-    surname = models.CharField(max_length=100)
-    patronymic = models.CharField(max_length=100)
+    fio = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     organization = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name + ' ' + self.surname + ' ' + self.patronymic
+        return self.fio
 
 class Application(models.Model):
     ''' Заявка на участие в конкурсе 
@@ -68,6 +64,7 @@ class Application(models.Model):
     - status: ['new', 'accepted', 'rejected']
     - date: datetime
     - links: str[]
+    - photo: File
     '''
 
     id = models.AutoField(primary_key=True)
@@ -83,6 +80,8 @@ class Application(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     # много ссылки на статьи
     links = models.TextField()
+    photo = models.FileField(upload_to='photos')
+
     
     def __str__(self):
         return self.heading

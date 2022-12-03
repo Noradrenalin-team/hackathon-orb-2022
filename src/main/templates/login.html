@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <title>Вход в личный кабинет</title>
+</head>
+<body>
+    <header>
+        <div class="box">
+            <a href="#header-info"><div class="header-block">Главная</div></a>
+            <a href="#contacts"><div class="header-block">ЛК</div></a>
+        </div>
+    </header>
+
+    <div class="body">
+        <div class="wrapper-form">
+            <form action="#" method="post">
+                {% csrf_token %}
+                <h1>вход</h1>
+                <hr>
+                <h3>Логин</h3>
+                <input required class="input-text" type="name" name="login" id="" placeholder="Логин">
+                <hr>
+                <h3>Пароль</h3>
+                <input required class="input-text" type="password" name="password" id="" placeholder="Пароль">
+                <hr>
+                <button type="submit">Войти</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</body>
+</html>

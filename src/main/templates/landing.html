@@ -75,7 +75,7 @@
                 <h1>Полученные работы</h1>
                 <p>Перейдите на страницу работы чтобы ознакомится и оценить</p>
 
-                <div class="wrapper-levels">
+                <div class="wrapper-works">
                     {% for work in works %}
                         <div onClick="location.href='work/{{ work.id }}'" class="block-body-estimation">
                             <img class="img" src="{% static "/img/img-test.jpeg" %}" alt="">

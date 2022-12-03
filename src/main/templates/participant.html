@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/participant.css" %}">
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="box">
+                <a href="#"><div class="header-block">Главная</div></a>
+                <a href="#"><div class="header-block">ЛК</div></a>
+            </div>
+        </header>
+
+        <div class="body">
+            <div class="content">
+                <h1>Профиль</h1>
+                <h2>ФИО: </h2>
+                <h3>{{ info.fio }}</h3>
+                <h3>{{ info.email }}</h3>
+                <h2><a href="/work/{{ info.ap_id }}">ссылка на вашу работу</a></h2>
+                <hr>
+            </div>
+            <div class="result">
+                {% if result %}
+                    <h1>Результат оценки вашей работы жюри</h1>
+                    <table>
+                        <tr>
+                            <td class="col1">Критерий</td>
+                            <td class="col2">Оценка</td>
+                        </tr>
+                        {% for res in result %}
+                            <tr>
+                                <td class="col1">{{ res.name }}</td>
+                                <td class="col2">{{ res.value }}</td>
+                            </tr>
+                        {% endfor %}
+                        
+                    </table>
+                {% else %}
+                    <h1>Результат оценки вашей работы жюри еще не опубликован</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

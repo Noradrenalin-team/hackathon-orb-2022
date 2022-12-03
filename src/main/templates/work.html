@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/work.css" %}">
+    <title>{{ work.heading }}</title>
+</head>
+<body>
+    <header>
+        <div class="box">
+            <a href="#"><div class="header-block">Главная</div></a>
+            <a href="#"><div class="header-block">ЛК</div></a>
+        </div>
+    </header>
+
+    <div class="body">
+        <div class="wrapper">
+            <div class="img">
+                {% if work.photo %}
+                <img src="/media/{{ work.photo }}" alt="">
+                {% endif %}
+            </div>
+
+            <div class="h1-wrapper">
+                <h1 class="body-title">{{ work.heading }}</h1>
+            </div>
+
+            <h2 style="text-align: left; padding-left: 50px;">Анотация</h2>
+            <p class="p-annotation">{{ work.annotation }}</p>
+
+            <div class="sep">
+                <div>
+                    {% if is_video %}
+                        <video class="video" src="/media/{{ work.file }}" width="400" height="200" controls></video>
+                        <a href="/media/{{ work.file }}"><div class="download-file">Скачать</div></a>
+                    {% else %}
+                        <a href="/media/{{ work.file }}"><div class="download-file">Скачать материал</div></a>
+                    {% endif %}
+
+                </div>
+
+                <div class="text">
+                    <div class="side-info">
+                        <div class="side-info-wrapper">
+                            <h2 class="theme">Тема: {{ work.topic }}</h2>
+                            <div class="members">
+                                <h3>Авторы:</h3>
+                                <div class="member">{{ work.main_author.fio }}</div>
+                                {% for coauthor in coauthors %}
+                                <div class="member">{{ coauthor }}</div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2>Оцените работу: </h2>
+                    <div class="raiting">
+                        <div class="r-n">Не нравится</div>
+                        <form action="">
+                            <div class="r"><button type="submit">1</button></div>
+                            <div class="r"><button type="submit">2</button></div>
+                            <div class="r"><button type="submit">3</button></div>
+                            <div class="r"><button type="submit">4</button></div>
+                            <div class="r"><button type="submit">5</button></div>
+                            <div class="r"><button type="submit">6</button></div>
+                            <div class="r"><button type="submit">7</button></div>
+                            <div class="r"><button type="submit">8</button></div>
+                            <div class="r"><button type="submit">9</button></div>
+                            <div class="r"><button type="submit">10</button></div>
+                            <div class="r-n">Нравится</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
