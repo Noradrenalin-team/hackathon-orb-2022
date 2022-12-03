@@ -1,0 +1,163 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.box{
+    position: fixed;
+    top: 0;
+}
+
+header .box{
+    width: 100%;
+    height: 75px;
+    background-color: #091e5c;
+    display: flex;
+    justify-content: center;
+
+}
+
+.header-block{
+    width: 120px;
+    height: 75px;
+    display: flex;
+    color: white;
+    margin: 0px 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.header-block:hover{
+    background-color: #2d407a;
+}
+
+.header-info{
+    width: 100%;
+    height: 600px;
+    background-image: url(../img/landing.png);
+    background-repeat: round;
+}
+
+.header-info-text{
+    font-size: 25px;
+    display: flex;
+    color: white;
+    flex-direction: row;
+    padding-top: 10%;
+    margin-left: 100px;
+}
+
+.body{
+    margin: 100px;
+}
+
+.sep{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.for{
+    margin-right: 30px;
+}
+
+.for p{
+    font-size: 20px;
+}
+
+.about p{
+    font-size: 20px;
+}
+
+.levels{
+    
+}
+
+.wrapper-levels{
+    display: flex;
+    flex-direction: row;
+}
+
+.block-body{
+    width: 100%;
+    margin: 20px;
+    padding-left: 20px;
+    color: white;
+    background-color: #091e5c;
+}
+
+.registration{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-button{
+    width: 500px;
+    height: 50px;
+    background-color: #f138c0;
+    margin: 50px 0px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+}
+
+.registration-button:hover{
+    background-color: #091e5c;
+}
+
+.block-body-estimation{
+    width: 100%;
+    margin: 20px;
+    color: white;
+    background-color: #091e5c;
+}
+
+.block-body-estimation p{
+    padding: 0 20px;
+}
+
+.block-body-estimation img{
+    width: 100%;
+}
+
+.block-body-estimation a{
+    text-decoration: overline;
+}
+
+footer{
+    padding: 100px;
+    background-color: #00228c;
+    color: white;
+}
+
+footer a{
+    color: white;
+}
+
+footer a:hover{
+    background-color: #f138c0;
+}
+
+.results{
+
+}
+table{
+    border: 5px solid #091e5c;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    color: white;
+}
+td{
+    width: 300px;
+    height: 100px;
+    background-color: #091e5c;
+}

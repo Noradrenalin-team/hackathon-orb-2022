@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/landing.css" %}">
+    <title>Главная - {{ page_heading }}</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="box">
+                <a href="#header-info"><div class="header-block">Главная</div></a>
+                <a href="#about"><div class="header-block">О конкурсе</div></a>
+                <a href="#for"><div class="header-block">Для кого</div></a>
+                <a href="#levels"><div class="header-block">Этапы</div></a>
+                <a href="#reg"><div class="header-block">Регистрация</div></a>
+                <a href="#contacts"><div class="header-block">Контакты</div></a>
+                <a href="#contacts"><div class="header-block">ЛК</div></a>
+            </div>
+            <div id="header-info" class="header-info">
+                <div class="header-info-text">
+                    <div class="column">
+                        <h1 class="colored">{{ heading.0 }}</h1>
+                        <h1>{{ heading.1 }}</h1>
+                        <h2 class="date">{{ heading.2 }}</h2>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="body">
+            <div id="about" class="about">
+                <div>
+                    <h1>О конкурсе</h1>
+                    <p class="">{{ about_contest|linebreaks }}</p>
+                </div>
+            </div>
+            {% if participate_enable %}<hr>{% endif %}
+            <div class="sep">
+                {% if participate_enable %}
+                    <div id="for" class="for">
+                        <h1>Кто может участвовать</h1>
+                        <p>{{ participates|linebreaks }}</p>
+                    </div>
+                {% endif %}
+                {% if reg_enable %}
+                    <div id="reg" class="registration">
+                        <a href="registration.html"><button class="registration-button">Регистрация</button></a>
+                    </div>
+                {% endif %}
+            </div>
+            <hr>
+            <div id="levels" class="levels">
+                <h1>Этапы</h1>
+                <div class="wrapper-levels">
+                    {% for stage in stages %}
+                    <div class="block-body">
+                        <h3>{{ stage.name }}</h3>
+                        <h2>{{ stage.H }}</h2>
+                        <p>{{ stage.P }}</p>
+                        <h3>{{ stage.description }}</h3>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+            
+        {% if works %}
+            <hr>
+            <div class="estimations">
+                <h1>Полученные работы</h1>
+                <p>Перейдите на страницу работы чтобы ознакомится и оценить</p>
+
+                <div class="wrapper-levels">
+                    {% for work in works %}
+                        <div onClick="location.href='work/{{ work.id }}'" class="block-body-estimation">
+                            <img class="img" src="{% static "/img/img-test.jpeg" %}" alt="">
+                            <p>{{ work.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        {% if results %}
+            <hr>
+            <div class="results">
+                <h1>Итоги конкурса</h1>
+                <div class="wrapper-table">
+                    <table>
+                        <tr>
+                            <td>Место</td>
+                            <td>Работа, автор</td>
+                            <td>Количество баллов (экспертное мнение)</td>
+                            <td>Колличество баллов (итоги голосования гостей сайта)</td>
+                        </tr>
+                        {% for result in results %}
+                            <tr>
+                                <td>{{ result.place }}</td>
+                                <td onClick="location.href='work/{{ result.work_id }}'">"{{ result.name }}", {{ result.author }}</td>
+                                <td>{{ result.expert }}</td>
+                                <td>{{ result.guest }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+        </div>
+
+        <footer>
+            <div id="contacts" class="contacts">
+                <h1>Контакты</h1>
+                <h3>Министерство региональной и информационной политики Оренбургской области</h3>
+                <a href="https://reginform.orb.ru/" target="_blank">Перейти</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
