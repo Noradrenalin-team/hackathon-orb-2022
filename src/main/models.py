@@ -89,7 +89,7 @@ class Application(models.Model):
 
     rating = models.FloatField(blank=True, default=0)
     votes = models.IntegerField(blank=True , default=0)
-    
+    uid_antiplagiat = models.CharField(max_length=100, blank=True)
     
     def __str__(self):
         return self.heading
@@ -206,6 +206,7 @@ class Contests(models.Model):
     - registration is available: bool
     - viewing works: bool
     - results: bool
+    - uid_antiplagiat: str
 
 
 
@@ -229,8 +230,9 @@ class Contests(models.Model):
 
     participate_info_available = models.BooleanField(default=False)
 
-
+    
 
 
     def __str__(self):
         return self.name + ' ' + self.status
+

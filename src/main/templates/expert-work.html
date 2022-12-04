@@ -42,7 +42,22 @@
                             {% else %}
                                 <a href="/media/{{ work.file }}"><div class="download-file">Скачать материал</div></a>
                             {% endif %}
-                        </div>
+                        <h2>Поиск отклика в сети</h2>
+                        <div onclick="window.open('https://dzen.ru/search?query={{ work.heading }}', '_blank', );"> Искать по заголовку в Дзене</div>
+                        <div onclick="window.open('https://dzen.ru/search?issue_tld=ru&text={{ work.heading }}', '_blank', );"> Искать по заголовку в Новостях</div>
+                        <div onclick="window.open('https://www.yandex.ru/search/?text={{ work.heading }}', '_blank', );"> Искать по заголовку в Дзене</div>
+                        <div onclick="window.open('https://vk.com/search?c%5Bq%5D={{ work.heading }}', '_blank',);"> Искать по заголовку в ВК</div>
+                        <div onclick="window.open('https://smi2.ru/search/{{ work.heading }}', '_blank',);"> Искать по заголовку в СМИ2</div>
+                        <div onclick="window.open('https://www.google.com/search?q={{ work.heading }}', '_blank',);"> Искать по заголовку в Google</div>
+                        <div onclick="window.open('https://www.google.com/search?q={{ work.heading }}&tbm=nws', '_blank',);"> Искать по заголовку в Google News</div>
+
+                        <h2>Результат проверки на плагиат</h2>
+                        <a href="https://text.ru/antiplagiat/{{ work.uid_antiplagiat }}"><div class="download-file">На сайте text.ru</div></a>
+                        
+
+                    </div>
+
+
 
                         <div class="text-info">
                             <div class="side-info">

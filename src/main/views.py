@@ -6,6 +6,8 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
 import traceback
 
+import requests
+
 
 #Модели из БД
 from main.models import *
@@ -264,9 +266,37 @@ def registration(request):
         for coauthor in coauthors_:
             application.coauthors.add(coauthor)
 
+
+        #проверка на уникальность текста работы text.ru 
+        url = 'http://api.text.ru/post'
+
+        text = annotation
+
+        params = {
+            'userkey': '3178103b4e91c967777c78122840a120',
+            'text': text,
+        }
+
+        r = requests.post(url, data=params)
+
+        try:
+            json_data = r.json()
+            if 'text_uid' in json_data:
+                text_uid = json_data['text_uid']
+                print(text_uid)
+                application.uid_antiplagiat = text_uid
+                application.save()
+        except:
+            pass
+        
+
         return redirect('/login')
     else:
         return render(request, 'registration.html')
+
+
+    
+
 
 
 
@@ -401,7 +431,7 @@ def lk_work(request):
             author = Author.objects.get(id=request.session['author_id'])
             works = Application.objects.filter(main_author=author)
             info = {'fio': author.fio, 'email': author.email, 'org': author.organization, 'pos': author.position, 'ap_id': works[0].id}
-            
+            rating = ''
             result = []
             result_down = []
             result_up = []
