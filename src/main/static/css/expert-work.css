@@ -9,8 +9,8 @@ a{
 }
 
 .container{
-    overflow: hidden;
-
+    width: 100%;
+    height: 100%;
 }
 
 header .box{
@@ -37,10 +37,10 @@ header .box{
     background-color: #2d407a;
 }
 
+/* ---------------------------------------------------------------------- */
+
 .wrapper{
     width: 1000px;
-    background-color: white;
-    border: 5px solid #091e5c;
     margin: 20px auto;
     text-align: center;
 }
@@ -53,6 +53,7 @@ header .box{
 
 button{
     border: 2px solid #091e5c;
+    margin: 20px 0;
 }
 
 .raiting{
@@ -85,6 +86,11 @@ button{
     margin: 100px 50px;
 }
 
+.video{
+    height: 200px;
+    width:400px;
+}
+
 .p-annotation{
     width: 600px;
     margin-left: 50px;
@@ -107,24 +113,38 @@ button{
     object-fit:cover;
 }
 
-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .h1-wrapper{
     width: 100%;
     text-align: left;
     padding-left: 50px;
 }
 
-/* -------------------------------------------------- */
+/* ------------------------------------------------------------ */
 
-@media (max-width:1010px){
-    .wrapper{
-        width: 600px;
-    }
+.body{
+    width: 1000px;
+    margin: 20px auto;
+    border: 2px solid #091e5c;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.marks-text{
+    text-align: center;
+}
+
+.marks-video{
+    text-align: center;
+}
+
+.text{
+    margin: 0 100px;
+    text-align: left;
 }
 
 @media (max-width:1000px) {
@@ -135,7 +155,7 @@ form{
         overflow: hidden;
     }
 
-    .wrapper{
+    .body{
         width: 600px;
     }
 
@@ -194,7 +214,7 @@ form{
         overflow: hidden;
     }
 
-    .wrapper{
+    .body{
         width: 400px;
     }
 
@@ -226,8 +246,6 @@ form{
     .sep{
         display: flex;
         flex-direction: column-reverse;
-    margin: 100px 25px;
-
     }
 
     .video{
@@ -264,10 +282,5 @@ form{
     .form{
         font-size: 10px;
     }
-
-    .raiting{
-        flex-direction: column;
-        justify-content: baseline;
-        border: none;
-    }
+    
 }

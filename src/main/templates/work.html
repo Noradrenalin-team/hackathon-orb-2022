@@ -11,8 +11,8 @@
 <body>
     <header>
         <div class="box">
-            <a href="#"><div class="header-block">Главная</div></a>
-            <a href="#"><div class="header-block">ЛК</div></a>
+            <a href="/"><div class="header-block">Главная</div></a>
+            <a href="/lk"><div class="header-block">ЛК</div></a>
         </div>
     </header>
 
@@ -32,12 +32,12 @@
             <p class="p-annotation">{{ work.annotation }}</p>
 
             <div class="sep">
-                <div>
+                <div class="video-block">
                     {% if is_video %}
                         <video class="video" src="/media/{{ work.file }}" width="400" height="200" controls></video>
-                        <a href="/media/{{ work.file }}"><div class="download-file">Скачать</div></a>
+                        <a href="/media/{{ work.file }}" target="_blank"><div class="download-file">Скачать</div></a>
                     {% else %}
-                        <a href="/media/{{ work.file }}"><div class="download-file">Скачать материал</div></a>
+                        <a href="/media/{{ work.file }}" target="_blank"><div class="download-file">Скачать материал</div></a>
                     {% endif %}
 
                 </div>
@@ -61,19 +61,22 @@
             <div>
                 <h2>Оцените работу: </h2>
                     <div class="raiting">
-                        <div class="r-n">Не нравится</div>
-                        <form action="">
-                            <div class="r"><button type="submit">1</button></div>
-                            <div class="r"><button type="submit">2</button></div>
-                            <div class="r"><button type="submit">3</button></div>
-                            <div class="r"><button type="submit">4</button></div>
-                            <div class="r"><button type="submit">5</button></div>
-                            <div class="r"><button type="submit">6</button></div>
-                            <div class="r"><button type="submit">7</button></div>
-                            <div class="r"><button type="submit">8</button></div>
-                            <div class="r"><button type="submit">9</button></div>
-                            <div class="r"><button type="submit">10</button></div>
-                            <div class="r-n">Нравится</div>
+                        {% if voute %}
+                            <form action="" method="post">
+                        {% else %}
+                            <form action="">
+                        {% endif %}
+                            {% csrf_token %}
+                            <div class="r"><button type="submit" name="1" style="background-color: {{ c.1}};">1</button></div>
+                            <div class="r"><button type="submit" name="2" style="background-color: {{ c.2 }};">2</button></div>
+                            <div class="r"><button type="submit" name="3" style="background-color: {{ c.3 }};">3</button></div>
+                            <div class="r"><button type="submit" name="4" style="background-color: {{ c.4 }};">4</button></div>
+                            <div class="r"><button type="submit" name="5" style="background-color: {{ c.5 }};">5</button></div>
+                            <div class="r"><button type="submit" name="6" style="background-color: {{ c.6 }};">6</button></div>
+                            <div class="r"><button type="submit" name="7" style="background-color: {{ c.7 }};">7</button></div>
+                            <div class="r"><button type="submit" name="8" style="background-color: {{ c.8 }};">8</button></div>
+                            <div class="r"><button type="submit" name="9" style="background-color: {{ c.9 }};">9</button></div>
+                            <div class="r"><button type="submit" name="10" style="background-color: {{ c.10 }};">10</button></div>
                         </form>
                     </div>
                 </div>

@@ -18,7 +18,7 @@
                 <a href="#levels"><div class="header-block">Этапы</div></a>
                 <a href="#reg"><div class="header-block">Регистрация</div></a>
                 <a href="#contacts"><div class="header-block">Контакты</div></a>
-                <a href="#contacts"><div class="header-block">ЛК</div></a>
+                <a href="lk"><div class="header-block">ЛК</div></a>
             </div>
             <div id="header-info" class="header-info">
                 <div class="header-info-text">
@@ -49,7 +49,7 @@
                 {% endif %}
                 {% if reg_enable %}
                     <div id="reg" class="registration">
-                        <a href="registration.html"><button class="registration-button">Регистрация</button></a>
+                        <a href="registration"><button class="registration-button">Регистрация</button></a>
                     </div>
                 {% endif %}
             </div>
@@ -71,20 +71,23 @@
             
         {% if works %}
             <hr>
+            <h1>Полученные работы</h1>
+            <p>Перейдите на страницу работы чтобы ознакомится и оценить</p>
             <div class="estimations">
-                <h1>Полученные работы</h1>
-                <p>Перейдите на страницу работы чтобы ознакомится и оценить</p>
-
-                <div class="wrapper-works">
-                    {% for work in works %}
-                        <div onClick="location.href='work/{{ work.id }}'" class="block-body-estimation">
-                            <img class="img" src="{% static "/img/img-test.jpeg" %}" alt="">
-                            <p>{{ work.name }}</p>
+                {% for work in works %}
+                    <div onclick="location='/work/{{ work.id }}'" class="block">
+                        <div class="block-image">
+                            <img src="{{ work.photo.url }}" alt="">
                         </div>
-                    {% endfor %}
-                </div>
+                        <div class="block-text">
+                            <h4>{{ work.name }}</h4>
+                            <p>{{ work.annotation }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         {% endif %}
+
         {% if results %}
             <hr>
             <div class="results">
@@ -100,7 +103,7 @@
                         {% for result in results %}
                             <tr>
                                 <td>{{ result.place }}</td>
-                                <td onClick="location.href='work/{{ result.work_id }}'">"{{ result.name }}", {{ result.author }}</td>
+                                <td onClick="location.href='work/{{ result.id }}'">{{ result.info }}</td>
                                 <td>{{ result.expert }}</td>
                                 <td>{{ result.guest }}</td>
                             </tr>
@@ -114,6 +117,7 @@
         <footer>
             <div id="contacts" class="contacts">
                 <h1>Контакты</h1>
+                <p>Создано по заказу</p>
                 <h3>Министерство региональной и информационной политики Оренбургской области</h3>
                 <a href="https://reginform.orb.ru/" target="_blank">Перейти</a>
             </div>

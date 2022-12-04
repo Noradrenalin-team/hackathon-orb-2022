@@ -8,10 +8,6 @@ a{
     text-decoration: none;
 }
 
-.container{
-    overflow: hidden;
-}
-
 header .box{
     width: 100%;
     height: 75px;
@@ -82,7 +78,7 @@ header .box{
 
 .wrapper-works{
     display: inline-block;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .block-body{
@@ -114,40 +110,27 @@ header .box{
     background-color: #091e5c;
 }
 
-.block{
+.block-body-estimation{
+    float: left;
     width: 300px;
-    height: 350px;
-    margin: 20px 20px;
-    background-color: #091e5c;
+    margin: 20px;
     color: white;
-
-    display: inline-flex;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: centerbaseline;
-    flex-wrap: wrap;
-    overflow:hidden;
+    background-color: #091e5c;
 }
 
-.block-image{
-    position: relative;
-    overflow:hidden;
-    width:300px;
-    height:150px;
-}
-.block-image img{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:300px;
-    height:150px;
-    object-fit:cover;
+.block-body-estimation p{
+    padding: 0 20px;
+    overflow: hidden;
 }
 
-.block-text{
+.block-body-estimation img{
+    width: 100%;
+}
+
+.block-body-estimation h1{
     padding: 0 20px;
 }
+
 
 footer{
     padding: 100px;
@@ -177,24 +160,6 @@ td{
 }
 
 /* -------------------------------------------------------- */
-
-@media (max-width:1400px) {
-    .header-block{
-        width: 50px;
-    }
-}
-
-@media (max-width:1000px) {
-    .header-block{
-        width: 20px;
-        font-size: 20px;
-    }
-
-    .body{
-        margin: 10px;
-    }
-}
-
 @media (max-width: 768px){
     header .box{
         display: none;
@@ -214,8 +179,5 @@ td{
 
     .block-body{
         margin: 0px;
-    }
-    .header-info-text{
-        margin-left: 10px;
     }
 }

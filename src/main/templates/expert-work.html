@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/expert-work.css" %}">
+    <title>{{ work.heading }}</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="box">
+                <a href="/"><div class="header-block">Главная</div></a>
+                <a href="/lk"><div class="header-block">ЛК</div></a>
+            </div>
+        </header>
+        <div class="body">
+            <div class="result">
+                <h1>Работа на проверку</h1>
+
+                <div class="wrapper">
+                    <div class="img">
+                        {% if work.photo %}
+                            <img src="/media/{{ work.photo }}" alt="">
+                        {% endif %}
+                    </div>
+        
+                    <div class="h1-wrapper">
+                        <h1 class="body-title">{{ work.heading }}</h1>
+                    </div>
+        
+                    <h2 style="text-align: left; padding-left: 50px;">Анотация</h2>
+                    <p class="p-annotation">{{ work.annotation }}</p>
+        
+                    <div class="sep">
+                        <div class="video-block">
+                            {% if is_video %}
+                                <video class="video" src="/media/{{ work.file }}" controls></video>
+                                <a href="/media/{{ work.file }}"><div class="download-file">Скачать</div></a>
+                            {% else %}
+                                <a href="/media/{{ work.file }}"><div class="download-file">Скачать материал</div></a>
+                            {% endif %}
+                        </div>
+
+                        <div class="text-info">
+                            <div class="side-info">
+                                <div class="side-info-wrapper">
+                                    <h2 class="theme">Тема: {{ work.topic }}</h2>
+                                    <div class="members">
+                                        <h3>Авторы:</h3>
+                                        <div class="member">{{ work.main_author.fio }}</div>
+                                        {% for coauthor in coauthors %}
+                                        <div class="member">{{ coauthor }}</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="marks-text">
+                    <h1>Оцените работу</h1>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {% for mark in all_marks %}
+                        <div class="ask">
+                            <div class="text">
+                                <h3>{{ mark.name }}</h3>
+                            </div>
+                            <div class="form">
+                                <p><input type="radio" name="{{ mark.id }}" value="1" {{ mark.1 }}>1</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="2" {{ mark.2 }}>2</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="3" {{ mark.3 }}>3</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="4" {{ mark.4 }}>4</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="5" {{ mark.5 }}>5</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="6" {{ mark.6 }}>6</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="7" {{ mark.7 }}>7</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="8" {{ mark.8 }}>8</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="9" {{ mark.9 }}>9</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="10" {{ mark.10 }}>10</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endfor %}
+
+                        <h2>Понижающие критерии</h2>
+
+                        {% for mark in down_marks %}
+                        <div class="ask">
+                            <div class="text">
+                                <h3>{{ mark.name }}</h3>
+                            </div>
+                            <div class="form">
+                                <p><input type="radio" name="{{ mark.id }}" value="0" {{ mark.0 }}>Отсутсвует</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="1" {{ mark.1 }}>Скорее отсутсвует</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="2" {{ mark.2 }}>Скорее присутсвует</p>
+                                <p><input type="radio" name="{{ mark.id }}" value="3" {{ mark.3 }}>Присутсвует</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endfor %}
+
+                        <!-- Дополнительный балл -->
+                        <h2>Дополнительный балл</h2>
+                        {% for mark in up_marks %}
+                            <div class="ask">
+                                <div class="text">
+                                    <h3>{{ mark.name }}</h3>
+                                </div>
+                                <div class="form">
+                                    <p><input type="radio" name="{{ mark.id }}" value="0"  {{ mark.0 }}>0</p>
+                                    <p><input type="radio" name="{{ mark.id }}" value="1"  {{ mark.1 }}>1</p>
+                                    <p><input type="radio" name="{{ mark.id }}" value="1"  {{ mark.2 }}>2</p>
+                                    <p><input type="radio" name="{{ mark.id }}" value="1"  {{ mark.3 }}>3</p>
+                                </div>
+                            </div>
+                        <hr>{% endfor %}
+                            <button type="submit">Оценить работу</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

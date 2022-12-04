@@ -12,8 +12,8 @@
     <div class="container">
         <header>
             <div class="box">
-                <a href="#"><div class="header-block">Главная</div></a>
-                <a href="#"><div class="header-block">ЛК</div></a>
+                <a href="/"><div class="header-block">Главная</div></a>
+                <a href="/lk"><div class="header-block">ЛК</div></a>
             </div>
         </header>
 
@@ -24,7 +24,7 @@
                 <h3>{{ info.fio }}</h3>
                 <h3>{{ info.email }}</h3>
                 <h2><a href="/work/{{ info.ap_id }}">ссылка на вашу работу</a></h2>
-                <hr>
+                <hr><a href="/logout"><button>Выйти</button></a>
             </div>
             <div class="result">
                 {% if result %}
@@ -42,6 +42,42 @@
                         {% endfor %}
                         
                     </table>
+                        {% if result_down %}
+                            <h3>Штрафные баллы</h3>
+                        <table>
+                            <tr>
+                                <td class="col1">Критерий</td>
+                                <td class="col2">Оценка</td>
+                            </tr>
+                            {% for res in result_down %}
+                                <tr>
+                                    <td class="col1">{{ res.name }}</td>
+                                    <td class="col2">{{ res.value }}</td>
+                                </tr>
+                            {% endfor %}
+                            
+                        </table>
+                        {% endif %}
+
+                        {% if result_up %}
+                            <h3>Дополнительные баллы</h3>
+                        <table>
+                            <tr>
+                                <td class="col1">Критерий</td>
+                                <td class="col2">Оценка</td>
+                            </tr>
+                            {% for res in result_up %}
+                                <tr>
+                                    <td class="col1">{{ res.name }}</td>
+                                    <td class="col2">{{ res.value }}</td>
+                                </tr>
+                            {% endfor %}
+                            
+                        </table>
+                        {% endif %}
+
+
+                        <h2>Итоговая оценка: {{ rating }}</h2>
                 {% else %}
                     <h1>Результат оценки вашей работы жюри еще не опубликован</h1>
                 {% endif %}

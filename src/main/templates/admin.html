@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/admin.css" %}">
+    <title>ЛК Администратор</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="box">
+                <a href="/"><div class="header-block">Главная</div></a>
+                <a href="/admin"><div class="header-block">Админка ORM</div></a>
+                <a href="/lk"><div class="header-block">ЛК</div></a>
+            </div>
+        </header>
+        <div class="body">
+            <h1></h1>
+            <div class="result">
+                <h1>Итоги конкурса</h1>
+                <div class="wrapper-table">
+                    <table>
+                        <tr>
+                            <td>Место</td>
+                            <td>Название, Авторы</td>
+                            <td>Количество баллов (экспертное мнение)</td>
+                            <td>Колличество баллов (итоги голосования гостей сайта)</td>
+                            <td><a href="/admin/main/application">Показать в админке</a></td>
+                        </tr>
+                        {% for work in works %}
+                        <tr>
+                            <td>{{ work.place }}</td>
+                            <a href="/work/{{ work.id }}"><td>{{ work.info }}</td></a>
+                            <td>{{ work.expert }}</td>
+                            <td>{{ work.guest }}</td>
+                            <td><a href="/admin/main/application/{{ work.id }}">Показать в админке</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

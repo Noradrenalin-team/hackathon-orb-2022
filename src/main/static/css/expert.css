@@ -32,23 +32,13 @@ header .box{
     color: white;
 }
 
-.header-block:hover{
-    background-color: #2d407a;
-}
-
-/* --------------------------------------- */
+/* ------------------------------------------------------------ */
 
 .body{
     width: 1000px;
     margin: 20px auto;
     border: 2px solid #091e5c;
 }
-
-.content{
-    margin: 50px;
-}
-
-/* -------------------------------------------- */
 
 .result{
     text-align: center;
@@ -66,36 +56,55 @@ table{
     width: 400px;
     height: 100px;
     background-color: #091e5c;
+    font-size: 25px;
 }
 
-.col2{
-    width: 75px;
-    height: 100px;
-    background-color: #091e5c;
+.col1 a{
+    color: white;
+
 }
 
-/* ------------------------------------------------ */
+/* -------------------------------------------------- */
 
-@media (max-width:1000px){
+@media (max-width:1000px) {
+    .body{
+        width: 600px;
+    }
+}
+
+@media (max-width:600px) {
     .body{
         width: 400px;
     }
 }
 
-@media (max-width:400px){
+@media (max-width:400px) {
+    .header-block{
+        font-size: 10px;
+        width: 10px;
+    }
     .body{
         width: 200px;
     }
 
-    .content{
-        margin: 10px;
+    .result h1{
+        font-size: 20px;
     }
 
-    .header-block{
-        font-size: 15px;
-        width: 20px;
+    .col1{
+        width: 10px;
+        height: 100px;
+        background-color: #091e5c;
+        font-size: 25px;
     }
-    .result h1{
-        font-size: 15px;
+    
+    .col1 a{
+        color: white;
+        width: 100px;
+    }
+
+    table{
+    margin-bottom: 25px;
+        width: 100px;
     }
 }

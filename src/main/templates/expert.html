@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/expert.css" %}">
+    <title>ЛК</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="box">
+                <a href="/"><div class="header-block">Главная</div></a>
+                <a href="/lk"><div class="header-block">ЛК</div></a>
+            </div>
+        </header>
+        <div class="body">
+            <h1></h1>
+            <div class="result">
+                <h1>Работы</h1>
+                <table>
+                    <tr>
+                        <td class="col1">Название</td>
+                        <td class="col1">Статус</td>
+                    </tr>
+                    {% for work in w_none %}
+                        <tr>
+                            <td class="col1"><a href="/lk/work/{{ work.id }}">{{ work.heading }}</a></td>
+                            <td class="col1">Не оценено</td>
+                        </tr>
+                    {% endfor %}
+                    {% for work in w_wait %}
+                        <tr>
+                            <td class="col1"><a href="/lk/work/{{ work.id }}">{{ work.heading }}</a></td>
+                            <td class="col1">Частично оценено</td>
+                        </tr>
+                    {% endfor %}
+                    {% for work in w_done %}
+                        <tr>
+                            <td class="col1"><a href="/lk/work/{{ work.id }}">{{ work.heading }}</a></td>
+                            <td class="col1">Оценено</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <br>
+                <br>
+                <hr><br><a href="/logout"><button>Выйти</button></a>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
