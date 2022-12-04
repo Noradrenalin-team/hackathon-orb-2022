@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
@@ -627,8 +628,12 @@ def lk_works_work(request, id):
 
 
 
+            try:
+                work = Application.objects.get(id=id)
+            except:
+                return HttpResponse('error - не найдена работа')
 
-            work = Application.objects.get(id=id)
+
             marks = ExpertMark.objects.filter(application=work, expert=Expert.objects.get(id=request.session['expert_id']))
             marks_dict = {}
             for mark in marks: marks_dict[mark.mark.name] = mark.value
@@ -680,6 +685,28 @@ def lk_works_work(request, id):
 
             print(up_marks)
 
+            #antiplagiat
+
+            antiplagiat = {}
+
+            uid = work.uid_antiplagiat
+
+            if uid:
+                url = 'http://api.text.ru/post'
+                data = {'uid': uid, 'userkey': '3178103b4e91c967777c78122840a120'}
+                r = requests.post(url, data=data)
+                try:
+                    antiplagiat_ = r.json()
+                    antiplagiat['unique'] = antiplagiat_['text_unique']
+                    antiplagiat['sources'] = []
+                    rehweerhergweg =  json.loads(antiplagiat_['result_json'])
+
+                    for source in rehweerhergweg['urls']:
+                        antiplagiat['sources'].append({'link': source['url'], 'pr': source['plagiat']}) 
+                except Exception as e:
+                    print(e)
+                    print(traceback.format_exc())
+
             context = {
                 'work': work,
                 'all_marks': p_marks,
@@ -687,6 +714,7 @@ def lk_works_work(request, id):
                 'down_marks': down_marks,
                 'up_marks': up_marks,
                 'is_video': work_type == 'video',
+                'antiplagiat': antiplagiat,
 
             }
             return render(request, 'expert-work.html', context=context)

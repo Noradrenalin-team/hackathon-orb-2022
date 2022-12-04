@@ -20,7 +20,9 @@
         <div class="wrapper">
             <div class="img">
                 {% if work.photo %}
-                <img src="/media/{{ work.photo }}" alt="">
+                    <img src="/media/{{ work.photo }}" alt="">
+                {% else %}
+                    <img src="{% static "img/fon.jpg" %}" alt="">
                 {% endif %}
             </div>
 

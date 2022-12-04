@@ -24,6 +24,8 @@
                     <div class="img">
                         {% if work.photo %}
                             <img src="/media/{{ work.photo }}" alt="">
+                        {% else %}
+                            <img src="{% static "img/fon.jpg" %}" alt="">
                         {% endif %}
                     </div>
         
@@ -52,12 +54,29 @@
                         <div onclick="window.open('https://www.google.com/search?q={{ work.heading }}&tbm=nws', '_blank',);"> Искать по заголовку в Google News</div>
 
                         <h2>Результат проверки на плагиат</h2>
-                        <a href="https://text.ru/antiplagiat/{{ work.uid_antiplagiat }}"><div class="download-file">На сайте text.ru</div></a>
+                        {% if antiplagiat %}
+                            <div class="antiplagiat">
+                                <div class="antiplagiat-text">Уникальность текста: {{ antiplagiat.unique }}%</div>
+                                {% if antiplagiat.sources %}
+                                    <p>Найдены совпадения на сайтах:</p>
+                                    <div class="antiplagiat-sources">
+                                        {% for source in antiplagiat.sources %}
+                                            <div class="antiplagiat-source">
+                                                <a href="{{ source.link }}">{{ source.link }}</a> - {{ source.pr }}%
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
                         
+                        
+                        {% else %}
+                            <div class="antiplagiat">Подождите, проводится проверка</div>
+                        {% endif %}
+
+  
 
                     </div>
-
-
 
                         <div class="text-info">
                             <div class="side-info">

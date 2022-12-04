@@ -77,7 +77,12 @@
                 {% for work in works %}
                     <div onclick="location='/work/{{ work.id }}'" class="block">
                         <div class="block-image">
-                            <img src="{{ work.photo.url }}" alt="">
+                            {% if work.photo %}
+                                <img src="{{ work.photo.url }}" alt="">
+                            {% else %}
+                                <img src="{% static "img/fon.jpg" %}" alt="">
+                            {% endif %}
+                            
                         </div>
                         <div class="block-text">
                             <h4>{{ work.name }}</h4>
