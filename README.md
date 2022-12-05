@@ -9,6 +9,7 @@
 - Модуль народного голосования
 
 ![Тут была гифка с примером работы](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/гифка.gif "Пример работы")
+###### https://youtu.be/EJ2DuWK5A_0
 
 ## Установка
 
