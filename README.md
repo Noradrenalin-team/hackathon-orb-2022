@@ -8,6 +8,8 @@
 - Поиск отклика читателей в сети
 - Модуль народного голосования
 
+![Тут была гифка с примером работы](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/гифка.gif "Пример работы")
+
 ## Установка
 
 - Используется ос Ubuntu (22.04) 
@@ -60,7 +62,13 @@ python3 src/manage.py migrate
 так-же админ водит информацию об этапах конкурса, информацию о конкурсе и заголовки
 - Эксперты на странице оценивания работы допольнительно могут посмотреть результаты проверки на *плагиат* и перейти на страницы с упоминанием материала чтобы ознокомится с *откликом в сети*
 
-
+## Примеры работы
+![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/главная.jpg "Пример работы")
+![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/работы.jpg "Пример работы")
+![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/регистрация.jpg "Пример работы")
+![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/работа.jpg "Пример работы")
+![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/оценка.jpg "Пример работы")
+![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/оценки.jpg "Пример работы")
 
 
 
