@@ -1,8 +1,19 @@
 # Кейс #1 Творческий конкурс журналистов
 ## Хакатон-Оренбург-2022
-Наш проект победил на хакатоне в номинации JUNIOR
+Наш проект победил на хакатоне в номинации **JUNIOR**
 <br>
 <img src="https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/диплом.jpg" alt="Тут был диплом" width="200"/>
+<br>
+## Содержание
+- [Реализованные модули](https://github.com/Noradrenalin-team/hackathon-orb-2022#реализованы-модули)
+- [Развёртывание проекта](https://github.com/Noradrenalin-team/hackathon-orb-2022#развёртывание-проекта)
+    - [Установка](https://github.com/Noradrenalin-team/hackathon-orb-2022#установка)
+    - [Настройка](https://github.com/Noradrenalin-team/hackathon-orb-2022#настройка)
+    - [Использование](https://github.com/Noradrenalin-team/hackathon-orb-2022#использование)
+- [Примеры работы](https://github.com/Noradrenalin-team/hackathon-orb-2022#примеры-работы)
+- [Немного о ТЗ](https://github.com/Noradrenalin-team/hackathon-orb-2022#немного-о-тз)
+- [О команде](https://github.com/Noradrenalin-team/hackathon-orb-2022#ps)
+<br>
 
 ### Реализованы модули:
 - Фронт система для визуализации данных и предоставление сервисов (процессов)
@@ -84,7 +95,7 @@ python3 src/manage.py migrate
 
 
 ## Немного о ТЗ
-Которое перед нами было поставленно
+Коротко о ТЗ которое перед нами было поставлено
 
 
 ##### Тема
@@ -111,3 +122,4 @@ https://disk.yandex.ru/d/bL9yARUuy9jl7g
 - Проект был разработан в течении 48 часов
 - В команды было 2 человека ([@DeveloperDmitryKolyadin](https://github.com/DeveloperDmitryKolyadin) и [@MrBallonvas](https://github.com/MrBallonvas))
 - Каждый из нас потратил на написание кода по 20 часов
+<br><br>
