@@ -1,5 +1,8 @@
 # Кейс #1 Творческий конкурс журналистов
 ## Хакатон-Оренбург-2022
+Наш проект победил на хакатоне в номинации JUNIOR
+<br>
+<img src="https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/диплом.jpg" alt="Тут был диплом" width="200"/>
 
 ### Реализованы модули:
 - Фронт система для визуализации данных и предоставление сервисов (процессов)
@@ -11,6 +14,7 @@
 ![Тут была гифка с примером работы](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/гифка.gif "Пример работы")
 ###### https://youtu.be/EJ2DuWK5A_0
 
+# Развёртывание проекта
 ## Установка
 
 - Используется ос Ubuntu (22.04) 
@@ -64,16 +68,24 @@ python3 src/manage.py migrate
 - Эксперты на странице оценивания работы допольнительно могут посмотреть результаты проверки на *плагиат* и перейти на страницы с упоминанием материала чтобы ознокомится с *откликом в сети*
 
 ## Примеры работы
-![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/главная.jpg "Пример работы")
-![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/работы.jpg "Пример работы")
-![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/регистрация.jpg "Пример работы")
-![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/работа.jpg "Пример работы")
-![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/оценка.jpg "Пример работы")
-![](https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/оценки.jpg "Пример работы")
+<br>
+<img src="https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/главная.jpg" alt="Пример работы" width="900"/>
+<br>
+<img src="https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/работы.jpg" alt="Пример работы" width="900"/>
+<br>
+<img src="https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/регистрация.jpg" alt="Пример работы" width="900"/>
+<br>
+<img src="https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/работа.jpg" alt="Пример работы" width="900"/>
+<br>
+<img src="https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/оценка.jpg" alt="Пример работы" width="900"/>
+<br>
+<img src="https://github.com/Noradrenalin-team/hackathon-orb-2022/raw/main/img/оценки.jpg" alt="Пример работы" width="900"/>
 
 
 
-#### Немного о ТЗ
+## Немного о ТЗ
+Которое перед нами было поставленно
+
 
 ##### Тема
 Разработка инструмента для подготовки министерством региональной и информационной политики Оренбургской области протокола заседания конкурсного жюри и решения о присуждении премий лауреатам.
@@ -92,4 +104,10 @@ python3 src/manage.py migrate
     4) поиск отклика читателей в сети (необходимо для проставления дополнительных баллов).
     5) модуль народного голосования, предоставляющий возможность всем желающим проголосовать за творческую работу.
 
+Подробнее об конкурсном задании
+https://disk.yandex.ru/d/bL9yARUuy9jl7g
 
+## PS
+- Проект был разработан в течении 48 часов
+- В команды было 2 человека ([@DeveloperDmitryKolyadin](https://github.com/DeveloperDmitryKolyadin) и [@MrBallonvas](https://github.com/MrBallonvas))
+- Каждый из нас потратил на написание кода по 20 часов
